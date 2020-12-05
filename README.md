@@ -14,3 +14,6 @@ To install the required python packages, run the following from a terminal.
 To run the application do the following from a terminal.
 
 ```python3 -m flask run --host=0.0.0.0 --port=5000```
+
+# history
+20201205144000 - edit
