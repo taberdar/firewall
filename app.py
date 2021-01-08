@@ -7,6 +7,7 @@ from sqlalchemy import create_engine
 HostName = socket.gethostbyname(socket.gethostname())
 app = Flask(__name__)
 
+# this works out traffic between pairs of ip addresses and limits to 3 what is displayed
 @app.route('/')
 def summary():
   sqlite_engine = create_engine('sqlite:///pcap.db')
@@ -18,6 +19,7 @@ def summary():
   totalBytes = pd.read_sql(sql = query, con = sqlite_engine)
   return totalBytes.to_html()
   
+# this works out all the senders with ip addresses and sorts to see who is sending the most
 @app.route('/topsenders')
 def topsenders():
   sqlite_engine = create_engine('sqlite:///capture.db')
